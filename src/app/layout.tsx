@@ -2,7 +2,9 @@ import { cookies } from 'next/headers';
 import { Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
 import './globals.scss';
-import { ThemeProvider, ThemeType } from '@/context/theme-context';
+import { ThemeProvider, ThemeType } from '@/context/theme.context';
+import SessionProvider from '@/context/session.context';
+import Navbar from '@/components/navbar';
 
 const poppins = Poppins({
     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -21,7 +23,13 @@ const RootLayout = ({
     return (
         <html lang='en' data-theme={theme}>
             <body className={poppins.className}>
-                <ThemeProvider initialTheme={theme}>{children}</ThemeProvider>
+                <ThemeProvider initialTheme={theme}>
+                    <SessionProvider>
+                        <Navbar />
+
+                        <main>{children}</main>
+                    </SessionProvider>
+                </ThemeProvider>
             </body>
         </html>
     );

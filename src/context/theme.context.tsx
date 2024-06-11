@@ -12,8 +12,8 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({
-    children,
     initialTheme,
+    children,
 }: {
     initialTheme: ThemeType;
     children: ReactNode;

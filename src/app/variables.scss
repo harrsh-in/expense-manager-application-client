@@ -1,11 +1,46 @@
 :root {
     --background-color: #f2f2f2;
-    --text-color: #222831;
-    --secondary-color: #393e46;
-    --action-color: #f96d00;
+
+    --text-primary-color: #222831;
+    --text-secondary-color: #393e46;
+
+    --primary-color: #1976d2; /* Blue 700 */
+    --primary-light-color: #63a4ff; /* Blue 400 */
+    --primary-dark-color: #004ba0; /* Blue 900 */
+
+    --secondary-light-color: #ff5c8d; /* Pink A200 */
+    --secondary-dark-color: #9a0036; /* Pink A700 */
+
+    --error-color: #d32f2f; /* Red 700 */
+    --warning-color: #f96d00;
+    --info-color: #0288d1; /* Light Blue 700 */
+    --success-color: #388e3c; /* Green 700 */
+
+    --paper-color: #f5f5f5; /* Grey 100 */
+
+    --divider-color: #e0e0e0; /* Grey 300 */
 }
 
 [data-theme='dark'] {
     --background-color: #222831;
-    --text-color: #f2f2f2;
+
+    --text-primary-color: #f2f2f2;
+    --text-secondary-color: #bdbdbd; /* Grey 400 */
+
+    --primary-color: #90caf9; /* Blue 200 */
+    --primary-light-color: #e3f2fd; /* Blue 50 */
+    --primary-dark-color: #42a5f5; /* Blue 400 */
+
+    --secondary-color: #f48fb1; /* Pink 200 */
+    --secondary-light-color: #f8bbd0; /* Pink 100 */
+    --secondary-dark-color: #ec407a; /* Pink 300 */
+
+    --error-color: #ef5350; /* Red 400 */
+    --warning-color: #ffa726; /* Orange 400 */
+    --info-color: #29b6f6; /* Light Blue 400 */
+    --success-color: #66bb6a; /* Green 400 */
+
+    --paper-color: #424242; /* Grey 800 */
+
+    --divider-color: #757575; /* Grey 600 */
 }

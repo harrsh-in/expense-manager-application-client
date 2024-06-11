@@ -1,6 +1,5 @@
 import styles from './page.module.scss';
 import type { Metadata } from 'next';
-import ThemeToggle from '@/components/ThemeToggle';
 
 export const metadata: Metadata = {
     title: 'Home | Budget Manager',
@@ -11,8 +10,6 @@ const HomePage = () => {
     return (
         <h1 className={styles['home']}>
             <p>Home</p>
-
-            <ThemeToggle />
         </h1>
     );
 };
