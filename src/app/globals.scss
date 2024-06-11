@@ -1,4 +1,10 @@
 @import './preflight.scss';
+@import './variables.scss';
+
+html {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
 
 body {
     padding: 0;

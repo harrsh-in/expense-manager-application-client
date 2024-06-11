@@ -1,6 +1,8 @@
+import { cookies } from 'next/headers';
 import { Poppins } from 'next/font/google';
 import { ReactNode } from 'react';
 import './globals.scss';
+import { ThemeProvider, ThemeType } from '@/context/theme-context';
 
 const poppins = Poppins({
     weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
@@ -8,14 +10,21 @@ const poppins = Poppins({
     preload: true,
 });
 
-export default function RootLayout({
+const RootLayout = ({
     children,
 }: Readonly<{
     children: ReactNode;
-}>) {
+}>) => {
+    const cookieStore = cookies();
+    const theme = (cookieStore.get('theme')?.value ?? 'light') as ThemeType;
+
     return (
-        <html lang='en'>
-            <body className={poppins.className}>{children}</body>
+        <html lang='en' data-theme={theme}>
+            <body className={poppins.className}>
+                <ThemeProvider initialTheme={theme}>{children}</ThemeProvider>
+            </body>
         </html>
     );
-}
+};
+
+export default RootLayout;
