@@ -8,7 +8,7 @@ interface PrimaryButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 const PrimaryButton = ({ children, ...props }: PrimaryButtonProps) => {
     return (
         <button
-            className={`${styles['primary-button']} ${props.className}`}
+            className={`${props.className} ${styles['primary-button']}`}
             {...props}
         >
             {children}

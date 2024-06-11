@@ -7,7 +7,7 @@ const authOptions: AuthOptions = {
         CredentialsProvider({
             name: 'Credentials',
             credentials: {
-                username: {
+                email: {
                     type: 'text',
                 },
                 password: {

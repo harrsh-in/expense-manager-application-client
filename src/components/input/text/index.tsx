@@ -25,25 +25,23 @@ const TextInput = <T extends FieldValues>({
     ...props
 }: TextInputProps<T>) => {
     return (
-        <div className={styles['text-input']}>
-            <input
-                id={id}
-                value={value}
-                className={`${styles['text-input-field']} ${value ? styles['has-value'] : ''} ${className}`}
-                {...register(name)}
-                {...props}
-            />
-            <label htmlFor={id} className={styles['text-input-label']}>
-                {ariaLabel}
-            </label>
+        <div className={styles['text-input-container']}>
+            <div className={styles['text-input']}>
+                <input
+                    id={id}
+                    value={value}
+                    className={`${styles['text-input-field']} ${value ? styles['has-value'] : ''} ${className}`}
+                    {...register(name)}
+                    {...props}
+                />
+                <label htmlFor={id} className={styles['text-input-label']}>
+                    {ariaLabel}
+                </label>
+            </div>
 
-            {error ? (
-                <span className={styles['text-input-error']}>
-                    {error.message}
-                </span>
-            ) : (
-                ' '
-            )}
+            <span className={styles['text-input-error']}>
+                {error ? error.message : ' '}
+            </span>
         </div>
     );
 };

@@ -33,33 +33,33 @@ const PasswordInput = <T extends FieldValues>({
     };
 
     return (
-        <div className={styles['password-input']}>
-            <input
-                id={id}
-                value={value}
-                type={showPassword ? 'text' : 'password'}
-                className={`${styles['password-input-field']} ${value ? styles['has-value'] : ''} ${className}`}
-                {...register(name)}
-                {...props}
-            />
-            <label htmlFor={id} className={styles['password-input-label']}>
-                {ariaLabel}
-            </label>
+        <div className={styles['password-input-container']}>
+            <div className={styles['password-input']}>
+                <input
+                    id={id}
+                    value={value}
+                    type={showPassword ? 'text' : 'password'}
+                    className={`${styles['password-input-field']} ${value ? styles['has-value'] : ''} ${className}`}
+                    {...register(name)}
+                    {...props}
+                />
+                <label htmlFor={id} className={styles['password-input-label']}>
+                    {ariaLabel}
+                </label>
 
-            {error ? (
-                <span className={styles['password-input-error']}>
-                    {error.message}
+                <span
+                    className={styles['password-input-toggle']}
+                    onClick={toggleShowPassword}
+                    aria-label={
+                        showPassword ? 'Hide password' : 'Show password'
+                    }
+                >
+                    {showPassword ? <HideVisibility /> : <Visibility />}
                 </span>
-            ) : (
-                ' '
-            )}
+            </div>
 
-            <span
-                className={styles['password-input-toggle']}
-                onClick={toggleShowPassword}
-                aria-label={showPassword ? 'Hide password' : 'Show password'}
-            >
-                {showPassword ? <HideVisibility /> : <Visibility />}
+            <span className={styles['password-input-error']}>
+                {error ? error.message : ' '}
             </span>
         </div>
     );
