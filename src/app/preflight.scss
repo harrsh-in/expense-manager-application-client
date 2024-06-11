@@ -165,8 +165,16 @@ textarea,
 */
 
 input:where(:not([type='button'], [type='reset'], [type='submit'])),
-select,
-textarea {
+input:where(
+        :not([type='button'], [type='reset'], [type='submit'])
+    ):focus-visible,
+textarea,
+textarea:focus-visible {
+    border: none;
+    outline: none;
+}
+
+select {
     border: 1px solid;
 }
 

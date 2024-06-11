@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import SignInForm from '@/app/auth/sign-in/SignInForm';
 
 export const metadata: Metadata = {
     title: 'Sign In | Budget Manager',
@@ -9,6 +10,8 @@ const SignInPage = () => {
     return (
         <div>
             <h1>Sign In</h1>
+
+            <SignInForm />
         </div>
     );
 };
