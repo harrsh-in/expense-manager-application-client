@@ -1,33 +1,51 @@
+import React, { InputHTMLAttributes } from 'react';
+import {
+    FieldError,
+    FieldValues,
+    Path,
+    UseFormRegister,
+} from 'react-hook-form';
 import styles from './text.module.scss';
-import { InputHTMLAttributes } from 'react';
 
-const TextInput = ({
+interface TextInputProps<T extends FieldValues>
+    extends InputHTMLAttributes<HTMLInputElement> {
+    name: Path<T>;
+    register: UseFormRegister<T>;
+    error?: FieldError;
+}
+
+const TextInput = <T extends FieldValues>({
     id,
     'aria-label': ariaLabel,
     value,
     className,
-    'aria-errormessage': error,
+    register,
+    name,
+    error,
     ...props
-}: TextInputProps) => {
+}: TextInputProps<T>) => {
     return (
         <div className={styles['text-input']}>
             <input
                 id={id}
                 value={value}
-                className={`${styles['text-input__field']} ${value ? styles['has-value'] : ''} ${className} `}
+                className={`${styles['text-input-field']} ${value ? styles['has-value'] : ''} ${className}`}
+                {...register(name)}
                 {...props}
             />
-            <label htmlFor={id} className={styles['text-input__label']}>
+            <label htmlFor={id} className={styles['text-input-label']}>
                 {ariaLabel}
             </label>
 
-            {error && (
-                <span className={styles['text-input__error']}>{error}</span>
+            {error ? (
+                <span className={styles['text-input-error']}>
+                    {error.message}
+                </span>
+            ) : (
+                ' '
             )}
         </div>
     );
 };
 
 export default TextInput;
-
-interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {}
